@@ -50,14 +50,14 @@ Pour le moment, les données des joueurs sont codées en dur dans App.js
 ## Personnalisation
 ### Ajouter / modifier des joueurs
 Dans src/App.js, modifie le tableau players :
-    ```bash
+    ```jsx
     const players = [
     { id: 1, position: 'GK', rating: 88, name: 'Courtois', club: 'Real de Madrid', nationality: 'Belgium' },
     // ajoute ou modifie ici...
     ];
 ## Ajouter une nouvelle formation
 Dans src/Pitch.js, ajoute une entrée dans l'objet formations :
-    ```bash
+    ```JavaScript
     '4-4-2': {
     positions: [
         // définis les positions grid pour chaque joueur (11 au total)
@@ -66,7 +66,7 @@ Dans src/Pitch.js, ajoute une entrée dans l'objet formations :
 Puis ajoute un bouton dans App.js.
 ## Changer l'image du terrain
 Remplace l'URL dans src/App.css :
-    ```bash
+    ```CSS
     .pitch {
     background: url('/path/to/ton-image-terrain.jpg') center/cover no-repeat;
     }
