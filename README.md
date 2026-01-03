@@ -1,16 +1,83 @@
-# React + Vite
+# FC Squad Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un mini squad builder inspiré de l'interface Ultimate Team d'**EA Sports FC 26** (FC 26), réalisé avec **React** et **CSS Grid**.
 
-Currently, two official plugins are available:
+Permet de visualiser une équipe sur un terrain avec différentes formations (4-2-3-1, 4-3-3, etc.) et des cartes joueurs stylisées.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fonctionnalités
 
-## React Compiler
+- Affichage d'un terrain de football avec positions des joueurs
+- Support de plusieurs formations (actuellement : 4-2-3-1 et 4-3-3)
+- Changement de formation via boutons
+- Cartes joueurs avec rating, position, nom, club et nationalité
+- Style inspiré des cartes FC 26 (fond sombre, bordure dorée, glow)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies utilisées
 
-## Expanding the ESLint configuration
+- React (Create React App ou Vite)
+- CSS Grid pour le positionnement des joueurs
+- CSS pur (pas de Tailwind ou Material UI)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Prérequis
+
+- Node.js ≥ 18
+- npm ou yarn
+
+## Installation
+
+1. Clone le dépôt (ou dézippe le dossier) :
+
+   ```bash
+   git clone <ton-repo-url>
+   cd react-squad-builer-template
+2. Installe les dépendances :
+    ```bash
+    npm install
+    # ou
+    yarn install
+3. Lance l'application en mode développement :
+    ```bash
+    npm start
+    # ou
+    yarn start
+
+Utilisation
+
+Clique sur les boutons "4-2-3-1" ou "4-3-3" pour changer de formation
+Les joueurs sont placés automatiquement selon la formation choisie
+Pour le moment, les données des joueurs sont codées en dur dans App.js
+
+## Personnalisation
+### Ajouter / modifier des joueurs
+Dans src/App.js, modifie le tableau players :
+    ```jsx
+    const players = [
+    { id: 1, position: 'GK', rating: 88, name: 'Courtois', club: 'Real de Madrid', nationality: 'Belgium' },
+    // ajoute ou modifie ici...
+    ];
+## Ajouter une nouvelle formation
+Dans src/Pitch.js, ajoute une entrée dans l'objet formations :
+    ```JavaScript
+    '4-4-2': {
+    positions: [
+        // définis les positions grid pour chaque joueur (11 au total)
+    ]
+    }
+Puis ajoute un bouton dans App.js.
+## Changer l'image du terrain
+Remplace l'URL dans src/App.css :
+    ```CSS
+    .pitch {
+    background: url('/path/to/ton-image-terrain.jpg') center/cover no-repeat;
+    }
+
+
+## Améliorations possibles
+
+Intégrer une API (FUTBIN, EA FC DB, etc.) pour charger de vrais joueurs
+Ajouter le drag & drop (avec react-dnd)
+Calculer la chimie entre joueurs (liens verts/oranges/rouges)
+Sauvegarde / chargement d'équipes (localStorage)
+Affichage des stats détaillées sur hover
+Support mobile / responsive
+Ajout d'images de joueurs / drapeaux / logos de clubs
